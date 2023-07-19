@@ -23,9 +23,13 @@
     <div id="return_fact" class="card">Click the button</div>
     <div id="return_picture"></div>
 
-    <div id="return_breeds_wiki">
+    <div>
+        <div id="return_breeds_name">
+        </div>
+        <div id="return_breeds_wiki">
+        </div>
     </div>
-
+    
     <div id="return_breeds_table" class="card"></div>
 
     <div id="return_breeds_map" class="card">
@@ -61,12 +65,12 @@
             for key, value in data[rand_breed].items():
                 cat_facts_dict[key] = value
 
+            document['return_breeds_name'].text <= cat_facts_dict["name"]
+
             document['return_breeds_wiki'].innerHTML = f"<a href=\"{cat_facts_dict['wikipedia_url']}\">Learn more</a>";
 
             t = TABLE()
             t <= TR()
-
-            t <= TR(TD("Name: ") + (TD(cat_facts_dict["name"])))
 
             t <= TR(TD("Description: "))
             t <= TR(TD(cat_facts_dict["description"]))
