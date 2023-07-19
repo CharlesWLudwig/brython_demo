@@ -33,20 +33,12 @@ h2 {
   margin-top: 20px;
 }
 
-div#return_picture, button#return-btn  {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-div div#return_breeds_table {
+div#return_picture, div#return_breeds_table, button#return-btn  {
   width: 100%;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-style: italic;
-  border: solid 1px blue;
 }
 
 button {
