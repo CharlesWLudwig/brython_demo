@@ -5,3 +5,5 @@ geopy
 folium
 Flask
 Gunicorn
+python-dotenv
+dotenv-python
