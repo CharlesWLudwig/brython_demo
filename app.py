@@ -17,4 +17,4 @@ def index():
     return render_template('index.html', brython_cat_breeds = url_search, brython_fact_url = fact_url)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5002, use_reloader=True)
+    app.run()
