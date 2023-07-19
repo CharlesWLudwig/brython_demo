@@ -68,7 +68,6 @@
 
             t <= TR(TD("Name: ") + (TD(cat_facts_dict["name"])))
 
-            t <= TR()
             t <= TR(TD("Description: "))
             t <= TR(TD(cat_facts_dict["description"]))
         
@@ -112,7 +111,7 @@
 
             document['return_breeds_table'] <= t  
                         
-            document['return_picture'].innerHTML = f"<img src=\"{cat_facts_dict[key]['url']}\" width=\"50%\" style=\"justify-content: center\">";
+            document['return_picture'].innerHTML = f"<img src=\"{cat_facts_dict[key]['url']}\" width=\"100px\" style=\"justify-content: center\">";
                 
         @bind('#return-btn', 'click')
         def get_content(e):
