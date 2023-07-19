@@ -7,3 +7,5 @@ Flask
 Gunicorn
 python-dotenv
 dotenv-python
+psycopg2
+config
