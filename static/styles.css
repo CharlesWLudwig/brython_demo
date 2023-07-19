@@ -16,6 +16,13 @@ div#return_picture img {
   align-items: center;
 }
 
+div#cat_introduction {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 30px;
