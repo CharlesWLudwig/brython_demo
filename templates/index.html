@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js">
+    </script>
+
+    <link rel="stylesheet" href="../static/styles.css">
+    
+    <title>Catfax</title>
+</head>
+<body onload="brython()">
+    <h1>Cat Facts For Everyone!</h1>
+    <h1>Happy Caturday!</h1>
+
+    <button id="return-btn">Get My Random Cat Fact!</button>
+      
+    <div id="return_fact" class="card">Click the button</div>
+    <div id="return_picture"></div>
+
+    <div id="return_breeds_wiki">
+    </div>
+
+    <div id="return_breeds_table" class="card"></div>
+
+    <div id="return_breeds_map" class="card">
+    </div>
+
+    <!-- Ajax call -->
+    <script type="text/python">
+        from browser import document, ajax, template, console, bind, html, window
+        import datetime
+        import json, random
+        from browser.html import TABLE, TR, TH, TD
+
+        def on_complete_fact(req):
+            data = json.loads(req.responseText)
+            url_content = data["fact"]
+            document['return_fact'].text = url_content
+        
+        @bind('#return-btn', 'click')
+        def get_content(e):
+            req = ajax.ajax()                
+            req.open('GET', f'{{ brython_fact_url }}', True)
+            req.bind('complete', on_complete_fact)
+            document['return_fact'].text = 'Loading...'
+            req.send()
+
+        def on_complete_breeds(req):
+            data = json.loads(req.responseText)           
+            rand_breed = random.randint(0, len(data) - 1)            
+            url_content = data[rand_breed]
+
+            cat_facts_dict = {}
+
+            for key, value in data[rand_breed].items():
+                cat_facts_dict[key] = value
+
+            document['return_breeds_wiki'].innerHTML = f"<a href=\"{cat_facts_dict['wikipedia_url']}\">Learn more</a>";
+
+            t = TABLE()
+            t <= TR()
+
+            t <= TR(TD("Name: ") + (TD(cat_facts_dict["name"])))
+
+            t <= TR()
+            t <= TR(TD("Description: "))
+            t <= TR(TD(cat_facts_dict["description"]))
+        
+            t <= TR(TD("Adaptability: ") + (TD(int(cat_facts_dict["adaptability"]) * "*")))
+
+            t <= TR(TD("Affection Level: ") + (TD([int(cat_facts_dict["affection_level"]) * "*"])))
+
+            t <= TR(TD("Child Friendly: ") + (TD(int(cat_facts_dict["child_friendly"])* "*")))
+
+            t <= TR(TD("Dog Friendly: ") + (TD(int(cat_facts_dict["dog_friendly"]) * "*")))
+
+            t <= TR(TD("Energy Level: ") + (TD(int(cat_facts_dict["energy_level"]) * "*")))
+           
+            t <= TR(TD("Grooming: ") + (TD(int(cat_facts_dict["grooming"]) * "*")))
+
+            t <= TR(TD("Health Issues: ") + (TD(int(cat_facts_dict["health_issues"]) * "*")))
+
+            t <= TR(TD("Intelligence: ") + (TD(int(cat_facts_dict["intelligence"]) * "*")))
+
+            t <= TR(TD("Shedding Level: ") + (TD(int(cat_facts_dict["shedding_level"]) * "*")))
+
+            t <= TR(TD("Social Needs: ") + (TD(int(cat_facts_dict["social_needs"]) * "*")))
+
+            t <= TR(TD("Stranger Friendly: ") + (TD(int(cat_facts_dict["stranger_friendly"]) * "*")))
+
+            t <= TR(TD("Vocalisation: ") + (TD(int(cat_facts_dict["vocalisation"]) * "*")))
+
+            t <= TR(TD("Experimental: ") + (TD(int(cat_facts_dict["experimental"]) * "*")))
+
+            t <= TR(TD("Hairless: ") + (TD(int(cat_facts_dict["hairless"]) * "*")))
+
+            t <= TR(TD("Natural: ") + (TD(int(cat_facts_dict["natural"]) * "*")))
+
+            t <= TR(TD("Rare: ") + (TD(int(cat_facts_dict["rare"]) * "*")))
+            
+            t <= TR(TD("Rex: ") + (TD(int(cat_facts_dict["rex"]) * "*")))
+
+            t <= TR(TD("Suppressed Tail: ") + (TD([int(cat_facts_dict["suppressed_tail"]) * "*"])))
+            
+            document['return_breeds_table'].text = ''
+
+            document['return_breeds_table'] <= t  
+                        
+            document['return_picture'].innerHTML = f"<img src=\"{cat_facts_dict[key]['url']}\" width=\"50%\" style=\"justify-content: center\">";
+                
+        @bind('#return-btn', 'click')
+        def get_content(e):
+            req = ajax.ajax()                
+            req.open('GET', f'{{ brython_cat_breeds }}', True)
+            req.bind('complete', on_complete_breeds)
+            document['return_picture'].text = 'Loading...'
+            req.send()           
+    </script>
+</body>
+</html>
