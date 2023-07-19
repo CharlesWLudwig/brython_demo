@@ -112,8 +112,10 @@
             document['return_breeds_table'] <= t  
             
             new_cat_url = "https://api.thecatapi.com/v1/images/" + cat_facts_dict["reference_image_id"]
+            
             console.log(new_cat_url)
-            document['return_picture'].innerHTML = f"<img src=\"{new_cat_url}\" width=\"100px\" style=\"justify-content: center\">";
+
+            document['return_picture'].innerHTML = f"<img src=\"{new_cat_url['url']}\" width=\"100px\" style=\"justify-content: center\">";
                 
         @bind('#return-btn', 'click')
         def get_content(e):
