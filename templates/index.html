@@ -21,7 +21,6 @@
     <button id="return-btn">Get My Random Cat Fact!</button>
       
     <div id="return_fact" class="card">Click the button</div>
-    <div id="return_picture"></div>
 
     <div id="cat_introduction">
         <div id="return_breeds_name">
@@ -29,6 +28,8 @@
         <div id="return_breeds_wiki">
         </div>
     </div>
+
+    <div id="return_picture"></div>
 
     <div id="return_breeds_table" class="card"></div>
 
@@ -38,7 +39,7 @@
     <!-- Ajax call -->
     <script type="text/python">
         console.log({{ postgres_connection }})
-        
+
         from browser import document, ajax, template, console, bind, html, window
         import datetime
         import json, random
