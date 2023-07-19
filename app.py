@@ -15,6 +15,3 @@ url_search = f"https://api.thecatapi.com/v1/breeds?api_key={cat_api_key}"
 @app.route("/")
 def index():
     return render_template('index.html', brython_cat_breeds = url_search, brython_fact_url = fact_url)
-
-if __name__ == '__main__':
-    app.run()
