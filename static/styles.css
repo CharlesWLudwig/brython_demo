@@ -68,4 +68,7 @@ button {
   margin: 20px 0;
   border: #ccc 1px solid;
   padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
