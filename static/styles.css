@@ -41,7 +41,7 @@ div#return_picture, button#return-btn  {
 }
 
 div div#return_breeds_table {
-  width: 90%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   text-align: center;
