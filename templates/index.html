@@ -31,6 +31,8 @@
 
     <div id="return_picture"></div>
 
+    <div id="return_breeds_desc"></div>
+    <br>
     <div id="return_breeds_table" class="card"></div>
 
     <div id="return_breeds_map" class="card">
@@ -70,11 +72,11 @@
 
             document['return_breeds_wiki'].innerHTML = f"<a href=\"{cat_facts_dict['wikipedia_url']}\">Learn more</a>";
 
+            
+            document['return_breeds_desc'].text = cat_facts_dict["description"]
+
             t = TABLE()
             t <= TR()
-
-            t <= TR(TD("Description: "))
-            t <= TR(TD(cat_facts_dict["description"]))
         
             t <= TR(TD("Adaptability: ") + (TD(int(cat_facts_dict["adaptability"]) * "*")))
 
