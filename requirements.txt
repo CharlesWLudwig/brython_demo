@@ -9,3 +9,11 @@ python-dotenv
 dotenv-python
 psycopg2
 config
+flask_restful
+flask_cors
+flask_sqlalchemy
+flask_migrate
+psycopg2-binary
+sqlalchemy
+sqlalchemy-utils
+pymysql

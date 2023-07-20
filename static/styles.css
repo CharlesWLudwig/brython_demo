@@ -4,6 +4,14 @@
   padding: 0;
 }
 
+table {
+  table-layout: fixed;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 body {
     font-family: Helvetica, sans-serif;
     font-size: 20px;
@@ -33,7 +41,7 @@ h2 {
   margin-top: 20px;
 }
 
-div#return_picture, div#return_breeds_table, button#return-btn  {
+div#return_picture, button#return-btn  {
   width: 100%;
   justify-content: center;
   align-items: center;
