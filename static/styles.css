@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/silian-rail-personal-use');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,10 +15,11 @@ table {
 }
 
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     padding: 30px;
     line-height: 1.6;
+    background-color: whitesmoke;
 }
 
 div#return_picture img {

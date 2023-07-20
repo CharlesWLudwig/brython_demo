@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js">
     </script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link href="https://fonts.cdnfonts.com/css/silian-rail-personal-use" rel="stylesheet">
 
     <link rel="stylesheet" href="../static/styles.css">
     
@@ -78,48 +78,48 @@
 
             document['return_breeds_name'].text = cat_facts_dict["name"]
 
-            document['return_breeds_wiki'].innerHTML = f"<a href=\"{cat_facts_dict['wikipedia_url']}\">Learn more</a>";
+            document['return_breeds_wiki'].innerHTML = f"<a href=\"{cat_facts_dict['wikipedia_url']}\" target=\"_blank\">Learn more</a>";
 
             document['return_breeds_desc'].text = cat_facts_dict["description"]
 
             t = TABLE(colspan=12)
             t <= TR()
         
-            t <= TR(TD("Adaptability: ") + (TD(int(cat_facts_dict["adaptability"]) * "*")))
+            t <= TR(TD("Adaptability: ") + (TD(int(cat_facts_dict["adaptability"]) * " *")))
 
-            t <= TR(TD("Affection Level: ") + (TD([int(cat_facts_dict["affection_level"]) * "*"])))
+            t <= TR(TD("Affection Level: ") + (TD([int(cat_facts_dict["affection_level"]) * " *"])))
 
-            t <= TR(TD("Child Friendly: ") + (TD(int(cat_facts_dict["child_friendly"])* "*")))
+            t <= TR(TD("Child Friendly: ") + (TD(int(cat_facts_dict["child_friendly"])* " *")))
 
-            t <= TR(TD("Dog Friendly: ") + (TD(int(cat_facts_dict["dog_friendly"]) * "*")))
+            t <= TR(TD("Dog Friendly: ") + (TD(int(cat_facts_dict["dog_friendly"]) * " *")))
 
-            t <= TR(TD("Energy Level: ") + (TD(int(cat_facts_dict["energy_level"]) * "*")))
+            t <= TR(TD("Energy Level: ") + (TD(int(cat_facts_dict["energy_level"]) * " *")))
            
-            t <= TR(TD("Grooming: ") + (TD(int(cat_facts_dict["grooming"]) * "*")))
+            t <= TR(TD("Grooming: ") + (TD(int(cat_facts_dict["grooming"]) * " *")))
 
-            t <= TR(TD("Health Issues: ") + (TD(int(cat_facts_dict["health_issues"]) * "*")))
+            t <= TR(TD("Health Issues: ") + (TD(int(cat_facts_dict["health_issues"]) * " *")))
 
-            t <= TR(TD("Intelligence: ") + (TD(int(cat_facts_dict["intelligence"]) * "*")))
+            t <= TR(TD("Intelligence: ") + (TD(int(cat_facts_dict["intelligence"]) * " *")))
 
-            t <= TR(TD("Shedding Level: ") + (TD(int(cat_facts_dict["shedding_level"]) * "*")))
+            t <= TR(TD("Shedding Level: ") + (TD(int(cat_facts_dict["shedding_level"]) * " *")))
 
-            t <= TR(TD("Social Needs: ") + (TD(int(cat_facts_dict["social_needs"]) * "*")))
+            t <= TR(TD("Social Needs: ") + (TD(int(cat_facts_dict["social_needs"]) * " *")))
 
-            t <= TR(TD("Stranger Friendly: ") + (TD(int(cat_facts_dict["stranger_friendly"]) * "*")))
+            t <= TR(TD("Stranger Friendly: ") + (TD(int(cat_facts_dict["stranger_friendly"]) * " *")))
 
-            t <= TR(TD("Vocalisation: ") + (TD(int(cat_facts_dict["vocalisation"]) * "*")))
+            t <= TR(TD("Vocalisation: ") + (TD(int(cat_facts_dict["vocalisation"]) * " *")))
 
-            t <= TR(TD("Experimental: ") + (TD(int(cat_facts_dict["experimental"]) * "*")))
+            t <= TR(TD("Experimental: ") + (TD(int(cat_facts_dict["experimental"]) * " *")))
 
-            t <= TR(TD("Hairless: ") + (TD(int(cat_facts_dict["hairless"]) * "*")))
+            t <= TR(TD("Hairless: ") + (TD(int(cat_facts_dict["hairless"]) * " *")))
 
-            t <= TR(TD("Natural: ") + (TD(int(cat_facts_dict["natural"]) * "*")))
+            t <= TR(TD("Natural: ") + (TD(int(cat_facts_dict["natural"]) * " *")))
 
-            t <= TR(TD("Rare: ") + (TD(int(cat_facts_dict["rare"]) * "*")))
+            t <= TR(TD("Rare: ") + (TD(int(cat_facts_dict["rare"]) * " *")))
             
-            t <= TR(TD("Rex: ") + (TD(int(cat_facts_dict["rex"]) * "*")))
+            t <= TR(TD("Rex: ") + (TD(int(cat_facts_dict["rex"]) * " *")))
 
-            t <= TR(TD("Suppressed Tail: ") + (TD([int(cat_facts_dict["suppressed_tail"]) * "*"])))
+            t <= TR(TD("Suppressed Tail: ") + (TD([int(cat_facts_dict["suppressed_tail"]) * " *"])))
             
             document['return_breeds_table'].text = ''
 
