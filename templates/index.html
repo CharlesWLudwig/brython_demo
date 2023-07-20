@@ -12,6 +12,14 @@
 
     <link href="https://fonts.cdnfonts.com/css/silian-rail-personal-use" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+
     <link rel="stylesheet" href="../static/styles.css">
     
     <title>Catfax</title>
@@ -21,7 +29,6 @@
     <h1>Happy Caturday!</h1>
 
     <button id="return-btn">Get My Random Cat Fact!</button>
-      
     <div id="return_fact" class="card">Click the button</div>
 
     <div id="cat_introduction">
@@ -41,14 +48,10 @@
     <br>
 
     <table id="return_breeds_table"></table>
-    
-    <div id="return_breeds_map" class="card">
-        {% include 'cat_map.html' %}
-    </div>  
-
+       
     <!-- Ajax call -->
     <script type="text/python">
-        from browser import document, ajax, template, console, bind, html, window
+        from browser import aio, document, alert, ajax, template, console, bind, html, window
         import datetime
         import json, random
         from browser.html import TABLE, TR, TH, TD
@@ -84,6 +87,8 @@
 
             t = TABLE(colspan=12)
             t <= TR()
+
+            document['return_breeds_table'].text = ''
         
             t <= TR(TD("Adaptability: ") + (TD(int(cat_facts_dict["adaptability"]) * " *")))
 
@@ -142,6 +147,9 @@
 
             document['return_breeds_table'] <= t  
             
+            document['cat_origins'].text = f"This {cat_facts_dict['name']} cat is from: {cat_facts_dict['origin']}" 
+            document['cat_code'].text = cat_facts_dict['country_code']
+
             new_cat_url = "https://cdn2.thecatapi.com/images/" + cat_facts_dict["reference_image_id"] + ".jpg"
             
             console.log(new_cat_url)
@@ -154,7 +162,17 @@
             req.open('GET', f'{{ brython_cat_breeds }}', True)
             req.bind('complete', on_complete_breeds)
             document['return_picture'].text = 'Loading...'
-            req.send()           
+            req.send()       
     </script>
+
+    <div id="cat_code"></div>
+    
+    <div id="container" class="card">
+        <div id="cat_origins"></div>
+        <div id="coords"></div>
+    </div>
+
+    <div id="mapid"></div>
+    
 </body>
 </html>

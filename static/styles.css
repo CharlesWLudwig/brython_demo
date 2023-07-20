@@ -6,12 +6,28 @@
   padding: 0;
 }
 
+#container{
+  text-align: center;
+}
+#mapid{
+  table-layout: fixed;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 400px;
+  width: 500px;
+}
+
 table {
   table-layout: fixed;
   width: 100%;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+div#cat_code {
+  color: whitesmoke;
 }
 
 body {

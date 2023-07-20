@@ -6,6 +6,7 @@ __pycache__/
 # C extensions
 *.so
 database.ini
+new_notes.txt
 # Distribution / packaging
 .Python
 build/
