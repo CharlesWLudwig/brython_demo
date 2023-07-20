@@ -33,7 +33,7 @@ def index():
 
 @app.route("/cat_map", methods=["POST"])
 def form_submit(): 
-    cat_code_data = request.form.get("name_input")
+    cat_code_data = request.form.get("cat_code")
     
     print(cat_code_data)
 
