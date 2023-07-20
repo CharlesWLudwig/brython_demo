@@ -87,40 +87,57 @@
         
             t <= TR(TD("Adaptability: ") + (TD(int(cat_facts_dict["adaptability"]) * " *")))
 
-            t <= TR(TD("Affection Level: ") + (TD([int(cat_facts_dict["affection_level"]) * " *"])))
+            if (int(cat_facts_dict["affection_level"]) != 0):
+                t <= TR(TD("Affection Level: ") + (TD(int(cat_facts_dict["affection_level"]) * " *")))
 
-            t <= TR(TD("Child Friendly: ") + (TD(int(cat_facts_dict["child_friendly"])* " *")))
+            if (int(cat_facts_dict["child_friendly"]) != 0):
+                t <= TR(TD("Child Friendly: ") + (TD(int(cat_facts_dict["child_friendly"]) * " *")))
 
-            t <= TR(TD("Dog Friendly: ") + (TD(int(cat_facts_dict["dog_friendly"]) * " *")))
+            if (int(cat_facts_dict["dog_friendly"]) != 0):
+                t <= TR(TD("Dog Friendly: ") + (TD(int(cat_facts_dict["dog_friendly"]) * " *")))
 
-            t <= TR(TD("Energy Level: ") + (TD(int(cat_facts_dict["energy_level"]) * " *")))
+            if (int(cat_facts_dict["energy_level"]) != 0):
+                t <= TR(TD("Energy Level: ") + (TD(int(cat_facts_dict["energy_level"]) * " *")))
            
-            t <= TR(TD("Grooming: ") + (TD(int(cat_facts_dict["grooming"]) * " *")))
+            if (int(cat_facts_dict["grooming"]) != 0):
+                t <= TR(TD("Grooming: ") + (TD(int(cat_facts_dict["grooming"]) * " *")))
 
-            t <= TR(TD("Health Issues: ") + (TD(int(cat_facts_dict["health_issues"]) * " *")))
+            if (int(cat_facts_dict["health_issues"]) != 0):
+                t <= TR(TD("Health Issues: ") + (TD(int(cat_facts_dict["health_issues"]) * " *")))
 
-            t <= TR(TD("Intelligence: ") + (TD(int(cat_facts_dict["intelligence"]) * " *")))
+            if (int(cat_facts_dict["intelligence"]) != 0):
+                t <= TR(TD("Intelligence: ") + (TD(int(cat_facts_dict["intelligence"]) * " *")))
 
-            t <= TR(TD("Shedding Level: ") + (TD(int(cat_facts_dict["shedding_level"]) * " *")))
+            if (int(cat_facts_dict["shedding_level"]) != 0):
+                t <= TR(TD("Shedding Level: ") + (TD(int(cat_facts_dict["shedding_level"]) * " *")))
 
-            t <= TR(TD("Social Needs: ") + (TD(int(cat_facts_dict["social_needs"]) * " *")))
+            if (int(cat_facts_dict["social_needs"]) != 0):
+                t <= TR(TD("Social Needs: ") + (TD(int(cat_facts_dict["social_needs"]) * " *")))
 
-            t <= TR(TD("Stranger Friendly: ") + (TD(int(cat_facts_dict["stranger_friendly"]) * " *")))
+            if (int(cat_facts_dict["stranger_friendly"]) != 0):
+                t <= TR(TD("Stranger Friendly: ") + (TD(int(cat_facts_dict["stranger_friendly"]) * " *")))
 
-            t <= TR(TD("Vocalisation: ") + (TD(int(cat_facts_dict["vocalisation"]) * " *")))
+            if (int(cat_facts_dict["vocalisation"]) != 0):
+                t <= TR(TD("Vocalisation: ") + (TD(int(cat_facts_dict["vocalisation"]) * " *")))
 
-            t <= TR(TD("Experimental: ") + (TD(int(cat_facts_dict["experimental"]) * " *")))
+            if (int(cat_facts_dict["experimental"]) != 0):
+                t <= TR(TD("Experimental: ") + (TD(int(cat_facts_dict["experimental"]) * " *")))
 
-            t <= TR(TD("Hairless: ") + (TD(int(cat_facts_dict["hairless"]) * " *")))
-
-            t <= TR(TD("Natural: ") + (TD(int(cat_facts_dict["natural"]) * " *")))
-
-            t <= TR(TD("Rare: ") + (TD(int(cat_facts_dict["rare"]) * " *")))
+            if (int(cat_facts_dict["hairless"]) != 0):
+                t <= TR(TD("Hairless: ") + (TD(int(cat_facts_dict["hairless"]) * " *")))
             
-            t <= TR(TD("Rex: ") + (TD(int(cat_facts_dict["rex"]) * " *")))
+            if (int(cat_facts_dict["natural"]) != 0):
+                t <= TR(TD("Natural: ") + (TD(int(cat_facts_dict["natural"]) * " *")))
 
-            t <= TR(TD("Suppressed Tail: ") + (TD([int(cat_facts_dict["suppressed_tail"]) * " *"])))
+            if (int(cat_facts_dict["rare"]) != 0):
+                t <= TR(TD("Rare: ") + (TD(int(cat_facts_dict["rare"]) * " *")))
+
+            if (int(cat_facts_dict["rex"]) != 0):
+                t <= TR(TD("Rex: ") + (TD(int(cat_facts_dict["rex"]) * " *")))
             
+            if (int(cat_facts_dict["suppressed_tail"]) != 0):
+                t <= TR(TD("Suppressed Tail: ") + (TD(int(cat_facts_dict["suppressed_tail"]) * " *")))
+                
             document['return_breeds_table'].text = ''
 
             document['return_breeds_table'] <= t  
