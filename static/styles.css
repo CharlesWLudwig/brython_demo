@@ -26,16 +26,16 @@ table {
   text-align: center;
 }
 
-div#cat_code {
-  color: whitesmoke;
-}
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     padding: 30px;
     line-height: 1.6;
     background-color: whitesmoke;
+}
+
+div#cat_code {
+  color: whitesmoke;
 }
 
 div#return_picture img {

@@ -27,16 +27,22 @@ url_search = f"https://api.thecatapi.com/v1/breeds?api_key={cat_api_key}"
 
 @app.route("/")
 def index():
-    cat_code_data = request.args.get("cat_code")
+    return render_template('index.html', brython_cat_breeds = url_search, brython_fact_url = fact_url,
+    brython_table_db = CAT_LOC
+)
+
+@app.route("/cat_map", methods=["POST"])
+def form_submit(): 
+    cat_code_data = request.form.get("name_input")
+    
+    print(cat_code_data)
 
     for i in CAT_LOC:
         if str(cat_code_data) in i['country']:
-            print(i['latitude'], i['longitude'])
-
-    return render_template('index.html', brython_cat_breeds = url_search, brython_fact_url = fact_url,
-    url_lat = cat_code_data,
-    url_lon = cat_code_data
-)
+            url_lat_lon_list = list(i['latitude'], i['longitude'])
+  
+    return render_template('cat_map.html', brython_cat_breeds = url_search, brython_fact_url = fact_url,
+    url_lat_lon = url_lat_lon_list)
 
 if __name__ == '__main__':
     app.run()
