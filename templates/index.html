@@ -156,7 +156,7 @@
             console.log(new_cat_url)
 
             document['return_picture'].innerHTML = f"<img src=\"{new_cat_url}\" width=\"80%\" style=\"justify-content: center\">";
-            
+
         @bind('#return-btn', 'click')
         def get_content(e):
             req = ajax.ajax()                
@@ -169,6 +169,11 @@
     <div id="container" class="card">
         <div id="cat_origins"></div>
         <div id="cat_code"></div>
+        
+        <div id="api_latitude"></div>
+        <div id="api_longitude"></div>
+        <div id="api_country"></div>
+        <div id="api_name"></div>
     </div>   
 </body>
 </html>
