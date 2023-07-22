@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 import os, psycopg2
 from database import load_records_from_db
@@ -18,21 +18,11 @@ url_search = f"https://api.thecatapi.com/v1/breeds?api_key={cat_api_key}"
 
 @app.route("/")
 def index():
-    """
-    for i in CAT_LOC:
-        if str(cat_code_data) in i['country']:
-            url_lat_lon_list = list(i['latitude'], i['longitude'])
-
-            for i in {{ brython_table_db }}:
-                if cat_facts_dict["country_code"] in i['country']:
-                    lat, long, country, name = i['latitude'], i['longitude'], i['country'], i['name']
-
-    """
     return render_template('index.html', brython_cat_breeds = url_search, brython_fact_url = fact_url
 )
 
 @app.route("/api/country", methods=["GET"])
-def get_all_users():
+def get_all_countries():
     if connection_records:
         result = []
         for record in connection_records:
