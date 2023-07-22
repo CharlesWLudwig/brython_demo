@@ -3,6 +3,7 @@ Gunicorn
 python-dotenv
 dotenv-python
 psycopg2
+brython
 config
 flask_restful
 flask_cors
