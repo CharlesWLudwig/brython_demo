@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 import os, psycopg2
 from database import load_records_from_db
-import pandas as pd
 
 load_dotenv()
 
