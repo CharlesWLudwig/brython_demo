@@ -24,13 +24,12 @@ jobs:
         cache: pip
         python-version: '3.11'
         architecture: 'x64'
-
-    - name: Install Python Dependencies
+     
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      continue-on-error: true
 
     - name: Lint with flake8
       run: |
