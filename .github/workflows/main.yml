@@ -12,6 +12,7 @@ jobs:
 
     steps:
     - name: Checkout Actions
+    - name: Setup Python / Node Environment
       uses: actions/checkout@v3
 
     - name: Setup Node.js environment
@@ -20,10 +21,36 @@ jobs:
     - name: Set up Python3
       uses: actions/setup-python@v4
       with:
+        cache: pip
         python-version: '3.11'
         architecture: 'x64'
 
     - name: Install Python Dependencies
       run: |
-        pip install --upgrade pip setuptools wheel
+        python -m pip install --upgrade pip
+        pip install flake8 pytest setuptools wheel
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       continue-on-error: true
+
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    
+#    - name: Test with pytest
+#      run: |
+#        pytest
+        
+    - name: Download latest brython_stdlib file
+      uses: suisei-cn/actions-download-file@v1.3.0
+      with:
+        url: "https://cdn.jsdelivr.net/npm/brython@3.11.0/brython_stdlib.js"
+        target: ./brython_stdlib.js
+        
+    - name: Download latest brython file
+      uses: suisei-cn/actions-download-file@v1.3.0
+      with:
+        url: "https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.js"
+        target: ./brython.js
